@@ -11,24 +11,35 @@
                     :defaultSelectedKeys="['1']"
                     :style="{ lineHeight: '64px' }"
             >
-                <a-menu-item key="1">地图</a-menu-item>
-                <a-menu-item key="2">数据</a-menu-item>
+                <a-menu-item key="1"
+                    @click="nav(1)"
+                >地图</a-menu-item>
+                <a-menu-item key="2" @click="nav(2)">数据</a-menu-item>
             </a-menu>
         </a-layout-header>
         <a-layout-content>
-            <div class="main"
-                 :style="{ background: '#fff',minHeight: '280px' }" >
-                <Map></Map>
+            <div class="main">
+                <router-view></router-view>
             </div>
         </a-layout-content>
     </a-layout>
 </template>
 <script>
-    import Map from '../components/Map/Map'
+    // import Map from '../components/Map/Map'
     export default {
         name: "Main",
         components:{
-            Map
+            // Map
+        },
+        methods: {
+            //路由跳转
+            nav: function (num) {
+                if(num === 1){
+                    this.$router.push('/map');
+                }else {
+                    this.$router.push('/form');
+                }
+            }
         }
     }
 </script>

@@ -1,5 +1,7 @@
 <template>
-    <div></div>
+    <div>
+        表单页
+    </div>
 </template>
 
 <script>

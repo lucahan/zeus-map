@@ -16,17 +16,17 @@
             };
         },
         mounted() {
-            // var mapcontainer = this.$refs.rootmap;
+            const mapcontainer = this.$refs.rootmap;
             this.map = new Map({
-                target: "map",
+                target: mapcontainer,
                 layers: [
                     new TileLayer({
                         source: new OSM()
                     })
                 ],
                 view: new View({
-                    projection: "EPSG:4326",    //使用这个坐标系
-                    center: [114.064839,22.548857],  //深圳
+                    projection: "EPSG:4326",
+                    center: [112.929332,28.234405],
                     zoom: 12
                 })
             });
