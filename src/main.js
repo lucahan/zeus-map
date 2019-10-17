@@ -1,6 +1,7 @@
 import Vue from 'vue'
+import "ol/ol.css";
 import App from './App.vue'
-import { Button, Layout, Menu,Row,Col } from 'ant-design-vue';
+import { Button, Layout, Menu,Row, Col, Icon } from 'ant-design-vue';
 import router from './router/router'
 import store from './store/store'
 
@@ -13,6 +14,7 @@ Vue.component(Layout.Content.name, Layout.Content)
 Vue.component(Menu.name, Menu)
 Vue.component(Row.name, Row)
 Vue.component(Col.name, Col)
+Vue.component(Icon.name, Icon)
 Vue.component(Menu.Item.name, Menu.Item)
 
 new Vue({
