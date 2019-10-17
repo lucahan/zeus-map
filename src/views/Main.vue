@@ -11,9 +11,7 @@
                     :defaultSelectedKeys="['1']"
                     :style="{ lineHeight: '64px' }"
             >
-                <a-menu-item key="1"
-                    @click="nav(1)"
-                >地图</a-menu-item>
+                <a-menu-item key="1" @click="nav(1)">地图</a-menu-item>
                 <a-menu-item key="2" @click="nav(2)">数据</a-menu-item>
             </a-menu>
         </a-layout-header>
@@ -25,12 +23,9 @@
     </a-layout>
 </template>
 <script>
-    // import Map from '../components/Map/Map'
     export default {
         name: "Main",
-        components:{
-            // Map
-        },
+        components:{},
         methods: {
             //路由跳转
             nav: function (num) {

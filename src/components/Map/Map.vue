@@ -1,5 +1,11 @@
 <template>
-    <div class="map" id="map" ref="rootmap">
+    <div class="map">
+        <div class="map-left">
+
+        </div>
+        <div class="map-container" id="map" ref="rootmap">
+        
+        </div>
     </div>
 </template>
 
@@ -36,7 +42,19 @@
 
 <style scoped lang="less">
     .map{
+        display: flex;
+        flex-direction: row;
         width: 100%;
         height: 100%;
+        .map-left{
+            width: 230px;
+            height: 100%;
+            border-right: solid 1px #ddd;
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+        }
+        .map-container{
+            width: calc(100% - 230px);
+            height: 100%
+        }
     }
 </style>
