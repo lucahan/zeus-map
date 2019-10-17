@@ -4,7 +4,6 @@
             <div class="logo-title">
                 Zeus-Map
             </div>
-            <!--<span>Zeus-Map</span>-->
             <a-menu
                     theme="dark"
                     mode="horizontal"
