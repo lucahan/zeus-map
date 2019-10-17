@@ -5211,6 +5211,11 @@ methods@~1.1.2:
   resolved "https://registry.npm.taobao.org/methods/download/methods-1.1.2.tgz#5529a4d67654134edcc5266656835b0f851afcee"
   integrity sha1-VSmk1nZUE07cxSZmVoNbD4Ua/O4=
 
+mgrs@1.0.0:
+  version "1.0.0"
+  resolved "https://registry.npm.taobao.org/mgrs/download/mgrs-1.0.0.tgz#fb91588e78c90025672395cb40b25f7cd6ad1829"
+  integrity sha1-+5FYjnjJACVnI5XLQLJffNatGCk=
+
 micromatch@^3.1.10, micromatch@^3.1.4:
   version "3.1.10"
   resolved "https://registry.npm.taobao.org/micromatch/download/micromatch-3.1.10.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fmicromatch%2Fdownload%2Fmicromatch-3.1.10.tgz#70859bc95c9840952f359a068a3fc49f9ecfac23"
@@ -6586,6 +6591,14 @@ progress@^2.0.0:
   version "2.0.3"
   resolved "https://registry.npm.taobao.org/progress/download/progress-2.0.3.tgz#7e8cf8d8f5b8f239c1bc68beb4eb78567d572ef8"
   integrity sha1-foz42PW48jnBvGi+tOt4Vn1XLvg=
+
+proj4@^2.5.0:
+  version "2.5.0"
+  resolved "https://registry.npm.taobao.org/proj4/download/proj4-2.5.0.tgz#e3a88ce7e7a07221aaccbc6760dd2eafee745f03"
+  integrity sha1-46iM5+egciGqzLxnYN0ur+50XwM=
+  dependencies:
+    mgrs "1.0.0"
+    wkt-parser "^1.2.0"
 
 promise-inflight@^1.0.1:
   version "1.0.1"
@@ -8534,6 +8547,11 @@ wide-align@^1.1.0:
   integrity sha1-rgdOa9wMFKQx6ATmJFScYzsABFc=
   dependencies:
     string-width "^1.0.2 || 2"
+
+wkt-parser@^1.2.0:
+  version "1.2.3"
+  resolved "https://registry.npm.taobao.org/wkt-parser/download/wkt-parser-1.2.3.tgz#240fe1dacc816bfe5674b66180041059eaa9a9ba"
+  integrity sha1-JA/h2syBa/5WdLZhgAQQWeqpqbo=
 
 wordwrap@~1.0.0:
   version "1.0.0"

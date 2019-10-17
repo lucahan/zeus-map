@@ -7,10 +7,11 @@
 
 <script>
 import "ol/ol.css";
-// import { Map, View } from "ol";
 import Map from "ol/Map";
 import View from "ol/View";
 import Tile from "ol/layer/Tile";
+import {register} from 'ol/proj/proj4';
+import proj4 from 'proj4';
 import WMTS from "ol/source/WMTS";
 import {get as getProjection} from "ol/proj";
 import {getWidth, getTopLeft} from 'ol/extent';
@@ -23,11 +24,14 @@ export default {
     };
   },
   mounted() {
+    proj4.defs("EPSG:4490","+proj=longlat +ellps=GRS80 +no_defs");
+    register(proj4);
+
     var projection = getProjection("EPSG:4326");
     var projectionExtent = projection.getExtent();
     var size = getWidth(projectionExtent) / 256;
     var resolutions = [];
-    for (var z = 2; z < 20; ++z) {
+    for (var z = 0; z < 20; z++) {
         resolutions[z] = size / Math.pow(2, z);
     }
     const mapcontainer = this.$refs.rootmap;
@@ -41,10 +45,8 @@ export default {
                     style: "default",
                     matrixSet: "c",
                     format: "tiles",
-                    wrapX: true,
                     tileGrid: new WmtsTile({
                         origin:  getTopLeft(projectionExtent),
-                        //resolutions: res.slice(0, 15),
                         resolutions: resolutions,
                         matrixIds: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
                     })
@@ -57,7 +59,6 @@ export default {
                     style: "default",
                     matrixSet: "c",
                     format: "tiles",
-                    wrapX: true,
                     tileGrid: new WmtsTile({
                         origin:  getTopLeft(projectionExtent),
                         resolutions: resolutions,
@@ -68,8 +69,9 @@ export default {
       ],
       view: new View({
         projection: "EPSG:4326",
-        center: [112.929332, 28.234405],
-        zoom: 12
+        center: [112.9979,28.2099],
+        zoom: 12,
+        maxZoom:18
       })
     });
   }
