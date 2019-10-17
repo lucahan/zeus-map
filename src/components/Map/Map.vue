@@ -2,17 +2,25 @@
     <div class="map">
         <div class="map-left">
             <!-- 导航头 -->
-            <a-tabs defaultActiveKey="2">
-                <a-tab-pane tab="专题" key="1">
-
+            <a-tabs defaultActiveKey="1">
+                <a-tab-pane tab="专题" key="1" class="map-left-tabPane">
+                    <div style="height: 100px;" class="map-left-tabPane-item">
+                        <img :src="tdtMap" alt="" />
+                        天地图街道图
+                    </div>
+                    <div style="height: 100px;" class="map-left-tabPane-item">
+                        <img :src="tdtImage" alt="" />
+                        天地图卫星图
+                    </div>
+                    <div style="height: 100px;" class="map-left-tabPane-item">
+                        <img :src="tdtDem" alt="" />
+                        天地图地形图
+                    </div>
                 </a-tab-pane>
                 <a-tab-pane tab="图层" key="2" forceRender>
                     <a-tree
                             checkable
                             :treeData="treeData"
-                            :defaultExpandedKeys="['0-0-0', '0-0-1']"
-                            :defaultSelectedKeys="['0-0-0', '0-0-1']"
-                            :defaultCheckedKeys="['0-0-0', '0-0-1']"
                             @select="this.onSelect"
                             @check="this.onCheck"
                     >
@@ -70,6 +78,9 @@
     import {get as getProjection} from "ol/proj";
     import {getWidth, getTopLeft} from "ol/extent";
     import WmtsTile from "ol/tilegrid/WMTS";
+    import tdtMap from "@/assets/tianditumap.png"
+    import tdtDem from "@/assets/tianditudem.png"
+    import tdtImage from "@/assets/tiandituimage.png"
 
     const treeData = [
         {
@@ -79,9 +90,8 @@
                 {
                     title: 'parent 1-0',
                     key: '0-0-0',
-                    disabled: true,
                     children: [
-                        {title: 'leaf', key: '0-0-0-0', disableCheckbox: true},
+                        {title: 'leaf', key: '0-0-0-0'},
                         {title: 'leaf', key: '0-0-0-1'},
                     ],
                 },
@@ -97,6 +107,9 @@
         name: "Map",
         data() {
             return {
+                tdtMap:tdtMap,
+                tdtDem:tdtDem,
+                tdtImage:tdtImage,
                 map: null,
                 treeData,
                 realTimeCoors: null
@@ -190,6 +203,27 @@
             z-index: 1;
             border-right: solid 1px #ddd;
             box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+            .map-left-tabPane{
+                padding: 10px;
+                .map-left-tabPane-item{
+                    margin-bottom: 20px;
+                    padding: 0 10px 0 10px;
+                    height: 100px;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content:space-between;
+                    align-items:center;
+                    border-bottom: solid 1px #ccc;
+                    border-top: solid 1px #ccc;
+                    img{
+                        height: 90%;
+                    }
+                    &:hover{
+                        cursor: pointer;
+                        background: #B0C4DE;
+                    }
+                }
+            }
         }
 
         .map-container {

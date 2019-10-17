@@ -5,13 +5,14 @@
                 Zeus-Map
             </div>
             <a-menu
+                    style="float: right"
                     theme="dark"
                     mode="horizontal"
                     :defaultSelectedKeys="['1']"
-                    :style="{ lineHeight: '64px' }"
+                    :style="{ lineHeight: '64px'}"
             >
                 <a-menu-item key="1" @click="nav(1)">地图</a-menu-item>
-                <a-menu-item key="2" @click="nav(2)">数据</a-menu-item>
+                <a-menu-item key="2" @click="nav(2)">管理</a-menu-item>
             </a-menu>
         </a-layout-header>
         <a-layout-content>
