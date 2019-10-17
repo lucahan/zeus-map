@@ -1,6 +1,22 @@
 <template>
   <div class="map">
-    <div class="map-left"></div>
+    <div class="map-left">
+        <!-- 导航头 -->
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+
+        <!-- 专题 -->
+        <div>
+            专题
+        </div>
+        <!-- 图层 -->
+        <div>
+            图层
+        </div>
+    </div>
     <div class="map-container" id="map" ref="rootmap">
       <!-- 待抽离，地图控制组件（放大，缩小，全图） -->
       <div class="map-control">
@@ -114,9 +130,9 @@ export default {
         maxZoom: 18
       })
     });
-    this.realTimeCoors = 'X:'+this.map.getView().getCenter()[0].toFixed(4)+',Y:'+this.map.getView().getCenter()[1].toFixed(4)
+    this.realTimeCoors = 'X:'+this.map.getView().getCenter()[0].toFixed(4)+',Y:'+this.map.getView().getCenter()[1].toFixed(4);
     this.map.on('pointermove',(event)=>{
-        this.realTimeCoors = 'X:'+event.coordinate[0].toFixed(4)+',Y:'+event.coordinate[1].toFixed(4)
+        this.realTimeCoors = 'X:'+event.coordinate[0].toFixed(4)+',Y:'+event.coordinate[1].toFixed(4);
     })
   }
 };
@@ -131,6 +147,7 @@ export default {
   .map-left {
     width: 230px;
     height: 100%;
+    z-index: 1;
     border-right: solid 1px #ddd;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
   }

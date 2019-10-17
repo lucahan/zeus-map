@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import "./style/style.less"
 import "ol/ol.css";
 import App from './App.vue'
 import { Button, Layout, Menu,Row, Col, Icon } from 'ant-design-vue';
