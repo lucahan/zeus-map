@@ -13,7 +13,7 @@
           <img :src="tdtDem" alt />地形图
         </div>
       </a-tab-pane>
-      <a-tab-pane tab="导航" key="2" forceRender>
+      <a-tab-pane tab="区域" key="2" forceRender>
         <a-tree checkable :treeData="treeData" @select="this.onSelect" @check="this.onCheck">
           <span slot="title0010" style="color: #1890ff">sss</span>
         </a-tree>

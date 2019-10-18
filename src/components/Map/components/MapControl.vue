@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import MapConfig from '@/config/MapConfig';
+import ZeusMap from '@/config/ZeusMap';
 export default {
   name: "MapContol",
   props: ['map'],
@@ -44,8 +44,8 @@ export default {
   methods: {
       home() {
         //缩放等级和中心点
-        this.$map.getView().setZoom(MapConfig.mapInitConfig.zoom);
-        this.$map.getView().setCenter(MapConfig.mapInitConfig.center);
+        this.$map.getView().setZoom(ZeusMap.mapInitConfig.zoom);
+        this.$map.getView().setCenter(ZeusMap.mapInitConfig.center);
       },
       enlarge() {
         this.$map.getView().setZoom(this.$map.getView().getZoom()+1);

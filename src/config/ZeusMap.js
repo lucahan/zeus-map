@@ -88,8 +88,13 @@ function getMap(){
     return map;
 }
 
+function addLayer(params) {
+    
+}
+
 export default {
   mapInitConfig,
   initMap,//地图初始化
   getMap,//获取当前map对象
+  addLayer,//添加图层，通用方法
 };
