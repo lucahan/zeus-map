@@ -1,24 +1,24 @@
 <template>
   <div class="map-control">
-    <div class="map-control-nav mar-bottom-10" title="全图">
+    <div class="map-control-nav mar-bottom-10" title="全图" @click="home">
       <div class="icons-list">
         <a-icon type="home" />
       </div>
     </div>
-
+<!-- 
     <div class="map-control-nav mar-bottom-10" title="平移">
       <div class="icons-list">
         <a-icon type="drag" />
       </div>
-    </div>
+    </div> -->
 
-    <div class="map-control-nav" title="放大">
+    <div class="map-control-nav" title="放大" @click="enlarge">
       <div class="icons-list">
         <a-icon type="plus" />
       </div>
     </div>
 
-    <div class="map-control-nav" title="缩小">
+    <div class="map-control-nav" title="缩小" @click="narrow">
       <div class="icons-list">
         <a-icon type="minus" />
       </div>
@@ -27,8 +27,33 @@
 </template>
 
 <script>
+import MapConfig from '@/config/MapConfig';
 export default {
-  name: "MapContol"
+  name: "MapContol",
+  props: ['map'],
+  data() {
+      return {
+          $map: null
+      }
+  },
+  watch: {
+      map(newValue) {
+          this.$map = newValue;
+      }
+  },
+  methods: {
+      home() {
+        //缩放等级和中心点
+        this.$map.getView().setZoom(MapConfig.mapInitConfig.zoom);
+        this.$map.getView().setCenter(MapConfig.mapInitConfig.center);
+      },
+      enlarge() {
+        this.$map.getView().setZoom(this.$map.getView().getZoom()+1);
+      },
+      narrow() {
+        this.$map.getView().setZoom(this.$map.getView().getZoom()-1);
+      }
+  },
 };
 </script>
 

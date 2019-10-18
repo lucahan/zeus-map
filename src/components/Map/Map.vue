@@ -4,14 +4,15 @@
     <MapLeft></MapLeft>
     <div class="map-container" id="map" ref="rootmap">
       <!-- 地图控制组件（放大，缩小，全图） -->
-      <MapControl></MapControl>
+      <MapControl :map="map"></MapControl>
       <!-- 地图坐标组件 -->
-      <MapCoordinate></MapCoordinate>
+      <MapCoordinate :coordinate="coordinate"></MapCoordinate>
     </div>
   </div>
 </template>
 
 <script>
+import MapConfig from '@/config/MapConfig';
 import Map from "ol/Map";
 import View from "ol/View";
 import { defaults as defaultControls } from "ol/control";
@@ -31,6 +32,7 @@ export default {
   data() {
     return {
       map: null,
+      coordinate:null
     };
   },
   components: {
@@ -92,30 +94,31 @@ export default {
         })
       ],
       view: new View({
-        projection: "EPSG:4326",
-        center: [112.9979, 28.2099],
-        zoom: 12,
-        maxZoom: 18
+        projection: MapConfig.mapInitConfig.projection,
+        center: MapConfig.mapInitConfig.center,
+        zoom: MapConfig.mapInitConfig.zoom,
+        maxZoom: MapConfig.mapInitConfig.maxZoom
       })
     });
-    // this.realTimeCoors =
-    //   "X:" +
-    //   this.map
-    //     .getView()
-    //     .getCenter()[0]
-    //     .toFixed(4) +
-    //   ",Y:" +
-    //   this.map
-    //     .getView()
-    //     .getCenter()[1]
-    //     .toFixed(4);
-    // this.map.on("pointermove", event => {
-    //   this.realTimeCoors =
-    //     "X:" +
-    //     event.coordinate[0].toFixed(4) +
-    //     ",Y:" +
-    //     event.coordinate[1].toFixed(4);
-    // });
+    //初始化坐标值设置
+    this.coordinate =
+      "X:" +
+      this.map
+        .getView()
+        .getCenter()[0]
+        .toFixed(4) +
+      ",Y:" +
+      this.map
+        .getView()
+        .getCenter()[1]
+        .toFixed(4);
+    this.map.on("pointermove", event => {
+      this.coordinate =
+        "X:" +
+        event.coordinate[0].toFixed(4) +
+        ",Y:" +
+        event.coordinate[1].toFixed(4);
+    });
   }
 };
 </script>
