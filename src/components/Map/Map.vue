@@ -1,7 +1,7 @@
 <template>
   <div class="map">
       <!-- 地图导航组件 -->
-    <MapLeft></MapLeft>
+    <MapLeft :map="map"></MapLeft>
     <div class="map-container" id="map" ref="rootmap">
       <!-- 地图控制组件（放大，缩小，全图） -->
       <MapControl :map="map"></MapControl>
