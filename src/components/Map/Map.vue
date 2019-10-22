@@ -33,6 +33,10 @@ export default {
   mounted() {
     const mapcontainer = this.$refs.rootmap;
     this.map = ZeusMap.initMap(mapcontainer);
+    const tdtLayer = ZeusMap.getTdtLayer('map');
+    this.map.addLayer(tdtLayer);
+    //底图赋值
+    ZeusMap.Global_Map_Config.baseLayer = tdtLayer;
     //初始化坐标值设置
     this.coordinate =
       "X:" +
