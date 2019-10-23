@@ -1,7 +1,7 @@
 <template>
   <div class="map">
       <!-- 地图导航组件 -->
-    <MapLeft></MapLeft>
+    <MapLeft :map="map"></MapLeft>
     <div class="map-container" id="map" ref="rootmap">
       <!-- 地图控制组件（放大，缩小，全图） -->
       <MapControl :map="map"></MapControl>
@@ -33,6 +33,10 @@ export default {
   mounted() {
     const mapcontainer = this.$refs.rootmap;
     this.map = ZeusMap.initMap(mapcontainer);
+    const tdtLayer = ZeusMap.getTdtLayer('map');
+    this.map.addLayer(tdtLayer);
+    //底图赋值
+    ZeusMap.Global_Map_Config.baseLayer = tdtLayer;
     //初始化坐标值设置
     this.coordinate =
       "X:" +
