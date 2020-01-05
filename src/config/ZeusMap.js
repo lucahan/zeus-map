@@ -16,7 +16,7 @@ let Global_Map_Config = {
         center: [112.9979, 28.2099],
         zoom: 12,
         maxZoom: 18,
-        projection: "EPSG:4326"
+        projection: "EPSG:4490"
     }
 };
 
@@ -27,7 +27,7 @@ let map = null;
  * @param {*} target 地图挂载点 div的id
  */
 function initMap(target) {
-    proj4.defs("EPSG:4490", "+proj=longlat +ellps=GRS80 +no_defs");
+    proj4.defs('EPSG:4490','GEOGCS["China Geodetic Coordinate System 2000",DATUM["China_2000",SPHEROID["CGCS2000",6378137,298.257222101,AUTHORITY["EPSG","1024"]],AUTHORITY["EPSG","1043"]],PRIMEM["Greenwich",0,AUTHORITY["EPSG","8901"]],UNIT["degree",0.0174532925199433,AUTHORITY["EPSG","9122"]],AUTHORITY["EPSG","4490"]]');
     register(proj4);
 
     map = new Map({
